@@ -2,17 +2,19 @@ import React from 'react';
 import { StyleSheet,  View,Platform , StatusBar,Image} from 'react-native';
 import colors from './app/config/colors'
 
-import IntroScreen from './app/screens/IntroScreen'
-import AppButton from './app/components/AppButton'
-import AppText from './app/components/AppText'
-import Card from './app/components/Card'
-import ListingScreen from './app/screens/ListingScreen'
-import ViewImageScreen from './app/screens/ViewImageScreen'
-import MessagesScreen from './app/screens/MessagesScreen';
-import introScreen from './app/screens/IntroScreen';
+import Screen from './app/components/Screen'
+import Icon from './app/components/Icon'
+
 export default function App() {
   return (
-    <MessagesScreen/>
+    <Screen>
+      <Icon
+        name="email"
+        size={50}
+        backgroundColor= "red"
+        iconColor= "white">
+      </Icon>
+    </Screen>
   );
 }
 

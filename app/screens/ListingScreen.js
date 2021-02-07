@@ -7,7 +7,7 @@ import colors from '../config/colors';
 
 function ListingScreen(props) {
     return (
-    <View >
+    <View > 
         <Image style={styles.image1} source={require('../assets/ps4.jpg')}></Image>
         <View style={styles.listiing}>
         <AppText style={styles.title}>ps4 in good condtion</AppText>

@@ -12,7 +12,11 @@ function ListingScreen(props) {
         <View style={styles.listiing}>
         <AppText style={styles.title}>ps4 in good condtion</AppText>
         <AppText style={styles.price  }>price 100</AppText>
-        <ItemList></ItemList>
+        <ItemList 
+        title= "Diaa Atya"
+        subtitle= "certifeid user"
+        image= {source=require('../assets/user2.jpg')}
+        />
         </View>
     </View>
     );

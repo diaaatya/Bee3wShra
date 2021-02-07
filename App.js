@@ -8,9 +8,11 @@ import AppText from './app/components/AppText'
 import Card from './app/components/Card'
 import ListingScreen from './app/screens/ListingScreen'
 import ViewImageScreen from './app/screens/ViewImageScreen'
+import MessagesScreen from './app/screens/MessagesScreen';
+import introScreen from './app/screens/IntroScreen';
 export default function App() {
   return (
-    <ViewImageScreen/>
+    <MessagesScreen/>
   );
 }
 

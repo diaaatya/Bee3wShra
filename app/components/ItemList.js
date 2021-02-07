@@ -1,16 +1,25 @@
 import React from 'react';
-import { View, StyleSheet , Image} from 'react-native';
+import { View, StyleSheet , Image, TouchableHighlight} from 'react-native';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 import AppText from './AppText';
 
-function ItemList(props) {
+function ItemList({title, subtitle,image, onPress,renderRightActions}) {
     return (
-        <View style={{flexDirection:"row-reverse"}}>
-            <Image style={styles.userImage} source={require("../assets/user2.jpg")} ></Image>
-            <View style={{flexDirection:"column"}}>
-             <AppText style={styles.listerName} >Diaa Atya</AppText>
-             <AppText style={styles.subtitle}>Certifeid seller</AppText>   
-            </View>
-        </View>
+        <Swipeable renderRightActions={renderRightActions} >
+            <TouchableHighlight
+                underlayColor={"#F2f3f4"} 
+                onPress={onPress}>
+                <View style={styles.itemContainer}>
+                    <Image style={styles.userImage} source={image} ></Image>
+                    <View style={{flexDirection:"column"}}>
+                    <AppText style={styles.listerName} >{title}</AppText>
+                    <AppText style={styles.subtitle}>{subtitle}</AppText>   
+                    </View>
+                </View>
+            </TouchableHighlight>
+        </Swipeable>
+
+
     );
 }
 const styles = StyleSheet.create({
@@ -26,7 +35,11 @@ const styles = StyleSheet.create({
     },
     subtitle:{
         fontSize:15,
-        height:200,
+        
+    },
+    itemContainer:{
+        paddingBottom:5,
+        flexDirection:"row-reverse",
     }
 
 })

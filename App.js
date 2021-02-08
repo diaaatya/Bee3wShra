@@ -1,21 +1,15 @@
 import React from 'react';
-import { StyleSheet,  View,Platform , StatusBar,Image} from 'react-native';
+import { StyleSheet,  View,Platform , StatusBar,Image,Text} from 'react-native';
 import colors from './app/config/colors'
 
-import Screen from './app/components/Screen'
-import Icon from './app/components/Icon'
+
+import Card from './app/components/Card';
+import ItemListingScreen from './app/screens/ItemListingScreen';
 
 export default function App() {
   return (
-    <Screen>
-      <Icon
-        name="email"
-        size={50}
-        backgroundColor= "red"
-        iconColor= "white">
-      </Icon>
-    </Screen>
-  );
+      <ItemListingScreen/>
+ );
 }
 
 const styles = StyleSheet.create({

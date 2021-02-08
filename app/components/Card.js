@@ -2,10 +2,10 @@ import React from 'react';
 import { View ,StyleSheet, Image} from 'react-native';
 import AppText from './AppText';
 
-function Card({title, subtitle,image}) {
+function Card({title, subtitle,images}) {
     return (
  <View style={styles.card}>
-     <Image style={styles.image} source={image}/>
+     <Image style={styles.image} source={images}/>
      <AppText style={styles.title}>{title}</AppText>
      <AppText style={styles.subtitle}>{subtitle}</AppText>
 
@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     title:{
         marginBottom:8,
         fontWeight: "bold",
-        paddingLeft:10
+        paddingLeft:10,
+        color:"red"
 
     },
     subtitle:{

@@ -4,14 +4,14 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AppText from './AppText';
 import PickerItem from './PickerItem';
 
-function AppPicker({icon ,items,placeholder}) {
+function AppPicker({icon ,selectedItem,onSelectedItem,items,placeholder}) {
     const [modalVisble, setModalVisble] = useState("false");
     return (
         <>
         <TouchableWithoutFeedback onPress={()=> setModalVisble(true)}>
         <View style={styles.container}>
            {icon && <MaterialCommunityIcons style={styles.iconStyle}  name={icon} color={"#dadedf"}  size={35}/>}
-           <AppText style={styles.textStyle} >{placeholder}</AppText> 
+           <AppText style={styles.textStyle} >{selectedItem? selectedItem.lable : placeholder}</AppText> 
            <MaterialCommunityIcons style={styles.iconStyle}  name='chevron-down' color={"#dadedf"}  size={35}/>
         </View>
         </TouchableWithoutFeedback>
@@ -21,7 +21,10 @@ function AppPicker({icon ,items,placeholder}) {
                 data={items}
                 keyExtractor={item=> item.value.toString()}
                 renderItem={({item})=>
-                <PickerItem  lable={item.lable} onPress={()=> console.log(item)} />
+                <PickerItem  lable={item.lable} onPress={()=> {
+                    setModalVisble(false);
+                    onSelectedItem(item);
+                }} />
             }
             />
         </Modal>

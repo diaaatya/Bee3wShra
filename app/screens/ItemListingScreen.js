@@ -1,12 +1,12 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { FlatList ,StyleSheet } from 'react-native';
 import Card from '../components/Card';
 import Screen from '../components/Screen';
 
 
-const   listings=[ {id:1,titel : "diaa", subtitle : "item2" ,image : require('../assets/ps4.jpg')} ,
-                    {id:2,titel : "diaa", subtitle : "item2" ,image : require('../assets/ps4.jpg')} ,
-                    {id:3,titel : "diaa", subtitle : "item2" ,image : require('../assets/ps4.jpg')} ]   
+const   listings=[ {id:1,titel : "بلاى ستيشن 4 فى حاله جيدة", subtitle : "2000" ,image : require('../assets/ps4.jpg')} ,
+                    {id:2,titel : "laptop 16 gb ram", subtitle : "5000 LE" ,image : require('../assets/laptop22.jpg')} ,
+                    {id:3,titel : "wacom tablet", subtitle : "2300 LE" ,image : require('../assets/wacom.jpg')} ]   
 function ItemListingScreen(props) {
     return (
         <Screen>
@@ -26,5 +26,8 @@ function ItemListingScreen(props) {
         </Screen>
     );
 }
+const styles = StyleSheet.create({
 
+    
+})
 export default ItemListingScreen;

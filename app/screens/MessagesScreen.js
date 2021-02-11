@@ -8,7 +8,7 @@ import Screen from '../components/Screen'
 
 
 const initialMessages = [
-{ id: "1",title : "t1", descreption : "d2", image : require('../assets/user2.jpg')},
+{ id: "1",title : "long long long very damn long title", descreption : "longlo  long long long very damn long title  long long long very damn long title  long long long very damn long title  long long long very damn long title  long long long very damn long title  long long long very damn long title  long long long very damn long title ", image : require('../assets/user2.jpg')},
 { id: "2",title : "t2", descreption : "d2", image : require('../assets/user2.jpg')},
 { id: "3",title : "t3", descreption : "d2", image : require('../assets/user2.jpg')}
 

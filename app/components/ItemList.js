@@ -12,9 +12,11 @@ function ItemList({title, subtitle,image,ImageComp, onPress,renderRightActions})
                 <View style={styles.itemContainer}>
                     {image && <Image style={styles.userImage} source={image} ></Image>}
                     {ImageComp}
-                    <View style={{flexDirection:"column"}}>
-                    <AppText style={styles.listerName} >{title}</AppText>
-                    {subtitle && <AppText style={styles.subtitle}>{subtitle}</AppText>   }
+                    <View style={styles.textCont}>
+                    <AppText style={styles.listerName}
+                    numberOfLines={1}
+                    >{title}</AppText>
+                    {subtitle && <AppText  numberOfLines={3} style={styles.subtitle}>{subtitle}</AppText>   }
                     </View>
                 </View>
             </TouchableHighlight>
@@ -28,18 +30,15 @@ const styles = StyleSheet.create({
         width:75,
         height:75,
         borderRadius:38,
-        marginLeft:10,
+        marginLeft:5,
  
     },
     listerName:{
         fontSize :20,
-        marginRight:5
-
-
     },
     subtitle:{
         fontSize:15,
-        marginRight:5
+        color:"#28231d"
 
         
     },
@@ -47,9 +46,13 @@ const styles = StyleSheet.create({
         paddingTop:5,
         paddingBottom:5,
         flexDirection:"row-reverse",
-        alignItems:"center",
-        marginLeft:5
+        alignItems:"stretch",
+        paddingRight:20
 
+    },
+    textCont:{
+     width:"80%",
+     alignItems:"flex-end"
     }
 
 })

@@ -12,7 +12,9 @@ function Screen({children,style}) {
 const styles = StyleSheet.create({
     SafeScreen:{
         paddingTop:Constants.statusBarHeight,
-        paddingHorizontal:10
+        paddingHorizontal:10,
+        alignItems:"flex-end"
+        
 
 
     }

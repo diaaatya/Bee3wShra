@@ -3,13 +3,23 @@ import { Text, View ,StyleSheet, Modal, TouchableWithoutFeedback, Button, FlatLi
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import AppText from './AppText';
 import PickerItem from './PickerItem';
+import CategoryPickerItem from './CategoryPickerItem'
 
-function AppPicker({icon ,selectedItem,onSelectedItem,items,placeholder}) {
+
+function AppPicker({
+    icon ,
+    selectedItem,
+    numberOfColumns=1,
+    PickerItemComponent = PickerItem,
+    onSelectedItem,
+    items,
+    placeholder,
+    width}) {
     const [modalVisble, setModalVisble] = useState("false");
     return (
         <>
         <TouchableWithoutFeedback onPress={()=> setModalVisble(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container,width]}>
            {icon && <MaterialCommunityIcons style={styles.iconStyle}  name={icon} color={"#dadedf"}  size={35}/>}
            <AppText style={styles.textStyle} >{selectedItem? selectedItem.lable : placeholder}</AppText> 
            <MaterialCommunityIcons style={styles.iconStyle}  name='chevron-down' color={"#dadedf"}  size={35}/>
@@ -18,10 +28,14 @@ function AppPicker({icon ,selectedItem,onSelectedItem,items,placeholder}) {
         <Modal visible={modalVisble} animationType="slide">
             <Button title="close "onPress={()=> setModalVisble(false)}></Button>
             <FlatList
+                numColumns={numberOfColumns}
                 data={items}
                 keyExtractor={item=> item.value.toString()}
                 renderItem={({item})=>
-                <PickerItem  lable={item.lable} onPress={()=> {
+                <PickerItemComponent 
+                 item= {item}
+                 lable={item.lable} 
+                 onPress={()=> {
                     setModalVisble(false);
                     onSelectedItem(item);
                 }} />
@@ -43,7 +57,7 @@ const styles = StyleSheet.create({
     },
     textStyle:{
         
-        flex: 1,
+     
     },
     iconStyle:{
         justifyContent:'center',

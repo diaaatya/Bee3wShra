@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet,  View,Platform , StatusBar,Image,Text, TextInput} from 'react-native';
 import colors from './app/config/colors'
 import ListngEditScreen from './app/screens/ListngEditScreen';
+import MessagesScreen from './app/screens/MessagesScreen'
 
 
 

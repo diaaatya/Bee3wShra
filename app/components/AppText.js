@@ -1,14 +1,17 @@
 import React from 'react';
 import { Text,StyleSheet ,View, Platform} from 'react-native';
 
-function AppText({children , style}) {
+function AppText({children , style,...otherProps}) {
     return (
-        <Text style={[styles.text, style]}>{children}</Text>
+
+        <Text 
+        style={[styles.text, style]}{...otherProps}>{children}</Text>
     );
 }
 const styles = StyleSheet.create({
     text:{
         fontSize:20,
+
         fontFamily:Platform.OS === "android" ? "serif" : "sens"
     }
 })

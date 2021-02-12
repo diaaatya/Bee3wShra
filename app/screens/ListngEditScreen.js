@@ -48,7 +48,7 @@ function ListngEditScreen(props) {
                     maxLength={8}
                     name="price"
                     placeholder="Price"
-                    width ={150}
+                    width ={"50%"}
 
                     />
                  
@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
     },
     textStyle:{
         marginBottom:5
-    }
+    },
+
     
 })
 export default ListngEditScreen;

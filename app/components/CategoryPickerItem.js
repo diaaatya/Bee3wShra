@@ -14,15 +14,17 @@ function CategoryPickerItem({item,onPress}) {
 }
 const styles = StyleSheet.create({
     PickerText:{
-
+        textAlign:"center",
         justifyContent:"center",
-        fontSize:18,
+        fontSize:13,
     },
     container:{
         alignItems:"center",
-        paddingHorizontal:20,
         paddingVertical:15,
-        flexWrap:"wrap"
+        paddingHorizontal:10,
+    
+
+ 
     }
 })
 export default CategoryPickerItem;

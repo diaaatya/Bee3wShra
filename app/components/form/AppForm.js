@@ -5,6 +5,7 @@ import { View ,StyleSheet} from 'react-native';
 function AppForm({initialValues,onSubmit,validationSchema,children}) {
     return (
         <Formik
+           style = {styles.container}
            initialValues={initialValues}
            onSubmit = {onSubmit}
            validationSchema={validationSchema}
@@ -20,7 +21,10 @@ function AppForm({initialValues,onSubmit,validationSchema,children}) {
     );
 }
 const styles = StyleSheet.create({
-
+container:{
+  flexDirection:"row",
+  justifyContent:"flex-end"
+}
 })
 
 export default AppForm;

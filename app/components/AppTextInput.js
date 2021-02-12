@@ -19,19 +19,21 @@ const styles = StyleSheet.create({
         borderRadius:25,
         alignItems:"center",
         marginBottom:10,
-        width:"50%",
-        marginHorizontal:5
+        width:"100%",
+        
+        alignSelf:"flex-end"
 
     },
     textStyle:{
         fontSize:20,
-        width:"80%",
-        textAlign:"left"
+        width:"75%",
+        textAlign:"left",
+        height:"75%"
 
     },
     iconStyle:{
         justifyContent:'center',
-        marginHorizontal:15
+        marginHorizontal:5
 
     }
  

@@ -48,7 +48,7 @@ function AppPicker({
 }
 const styles = StyleSheet.create({
     container:{
-        flexDirection:"row-reverse",
+        flexDirection:"row",
         height:50,
         backgroundColor:"#f2f2f4",
         borderRadius:25,

@@ -13,7 +13,7 @@ function AppTextInput({icon , style,width="100%",...otherProps}) {
 }
 const styles = StyleSheet.create({
     container:{
-        flexDirection:"row-reverse",
+        flexDirection:"row",
         height:50,
         backgroundColor:"#f2f2f4",
         borderRadius:25,
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         marginBottom:10,
         width:"100%",
         
-        alignSelf:"flex-end"
+        alignSelf:"flex-start"
 
     },
     textStyle:{

@@ -7,30 +7,25 @@ import ImageInput from './app/components/ImageInput';
 import Screen from './app/components/Screen'
 import ImageInputList from './app/components/ImageInputList';
 
-
+import {
+  AdMobBanner,
+  AdMobInterstitial,
+  PublisherBanner,
+  AdMobRewarded,
+  setTestDeviceIDAsync,
+} from 'expo-ads-admob';
 
 export default function App() {
-
-  const [photoUris, setPhotoUris] =useState([]);
-  
-  const handleAdd = uri =>{
-    setPhotoUris ([...photoUris , uri]);
-  }
-  const handleRemove = uri =>{
-    setPhotoUris( photoUris.filter(imageUri => imageUri !== uri ));
-  }
+ 
   return (
-    <Screen style={styles.container}>
-    <View>
-      <ImageInputList 
-      onChangeImage={(uri) => setPhotoUri(uri)}
-      imageUris={photoUris} 
-      onAddImage={uri => handleAdd(uri) }
-      onRemoveImage = {handleRemove}
-      style={{height:100 , width:100}} />
-
-      <ListngEditScreen></ListngEditScreen>
-    </View>
+    <Screen>
+    <ListngEditScreen></ListngEditScreen>
+    <AdMobBanner
+    style={{alignSelf:"center" , width:"100%" , marginleft:30 , marginTop:30}}
+     
+      adUnitID="ca-app-pub-2013283196465519/8817559602" // Test ID, Replace with your-admob-unit-id
+      servePersonalizedAds // true or false
+       onDidFailToReceiveAdWithError={this.bannerError} />
     </Screen>
   );
 }

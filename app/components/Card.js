@@ -3,15 +3,17 @@ import { View ,StyleSheet, Image} from 'react-native';
 import AppText from './AppText';
 import colors from '../config/colors.js'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-function Card({title, subtitle,images}) {
+function Card({title, subtitle,images,onPress}) {
     return (
- <View style={styles.card}>
-     <Image style={styles.image} source={images}/>
-     <AppText style={styles.title}>{title}</AppText>
-     <AppText style={styles.subtitle}>{subtitle}</AppText>
-
- </View>
+        <TouchableOpacity onPress={onPress}>
+            <View style={styles.card}>
+                <Image style={styles.image} source={images}/>
+                <AppText style={styles.title}>{title}</AppText>
+                <AppText style={styles.subtitle}>{subtitle}</AppText>
+            </View>
+        </TouchableOpacity>
     );
 }
 const styles = StyleSheet.create({

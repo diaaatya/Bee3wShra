@@ -6,15 +6,16 @@ import Icon from '../components/Icon';
 import ItemList from '../components/ItemList';
 import ListItemSeprator from '../components/ListItemSeprator';
 import WideSeprator from '../components/WideSeprator';
+import Screen from '../components/Screen'
 
 const menuItems = [
-    {title:"Messages Option",subtitle:"select your messages option",icon : {name:"email", color:"white", background:"red"} },
+    {title:"Messages Option",subtitle:"select your messages option",icon : {name:"email", color:"white", background:"red"} , navigation:"Messages"},
     {title:"Acount Setting",icon : {name:"account-settings-outline", color:"white",background:"#ab274f"}},
     {title:"Security",subtitle:"select your securit prefrance",icon : {name:"lock-plus", color:"white",background:"#ffbf00"}},
 ]
-function UserScreen(props) {
+function UserScreen({navigation}) {
     return (
-    <View>
+    <Screen>
     <ItemList 
         title= "Diaa Atya"
         subtitle="Email: Diaa.Atya@hotmail.com"
@@ -23,12 +24,12 @@ function UserScreen(props) {
     <WideSeprator/>
     <FlatList
     data={menuItems}    
-    keyExtractor={menuItem=> menuItems.title}
+    keyExtractor={menuItems=> menuItems.title}
     renderItem={({item})=> <ItemList
         title={item.title}
         subtitle={item.subtitle}
         ImageComp={<Icon name={item.icon.name} background={item.icon.background}/>}
-        onPress={()=> console.log("message selected", item.title)}
+        onPress={()=> navigation.navigate(item.navigation)}
     />}
     ItemSeparatorComponent={()=><ListItemSeprator/>}
 
@@ -43,7 +44,7 @@ function UserScreen(props) {
         onPress={()=>console.log("pressed")}
 
     />  
-    </View>    
+    </Screen>    
     );
 }
 const styles = StyleSheet.create({

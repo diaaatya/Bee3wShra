@@ -39,20 +39,17 @@ const styles = StyleSheet.create({
     subtitle:{
         fontSize:15,
         color:"#28231d"
-
-        
     },
     itemContainer:{
-        paddingTop:5,
-        paddingBottom:5,
-        flexDirection:"row-reverse",
-        alignItems:"stretch",
-        paddingRight:20
-
+        flexDirection:"row",
+        paddingRight:20,
+        marginBottom:10,
+        marginTop:10
     },
     textCont:{
      width:"80%",
-     alignItems:"flex-end"
+     marginLeft:10,
+     justifyContent:"center"
     }
 
 })

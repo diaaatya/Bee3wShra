@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList ,StyleSheet } from 'react-native';
 import Card from '../components/Card';
 import Screen from '../components/Screen';
+import routes from '../navigation/routes'
 
 
 const   listings=[ {id:1,titel : "بلاى ستيشن 4 فى حاله جيدة", subtitle : "2000" ,image : require('../assets/ps4.jpg')} ,
@@ -18,7 +19,7 @@ function ItemListingScreen({navigation}) {
                 title= {item.titel}
                 subtitle={item.subtitle}
                 images={item.image}
-                onPress={() => navigation.navigate("Listing" ,item)}
+                onPress={() => navigation.navigate(routes.LISTING_DETAILS ,item)}
                 />
             }
             />

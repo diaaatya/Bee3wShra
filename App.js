@@ -10,7 +10,7 @@ export default function App() {
  
   return (
     <NavigationContainer theme={navigationThem} >
-      <AppNavigator/>
+      <AppNavigator />
     </NavigationContainer>
   );
 }
@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
     flex : 1,
     paddingTop : Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
+  bar:{
+    height:200
+  }
 
 
 });

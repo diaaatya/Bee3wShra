@@ -7,9 +7,11 @@ import ItemList from '../components/ItemList';
 import ListItemSeprator from '../components/ListItemSeprator';
 import WideSeprator from '../components/WideSeprator';
 import Screen from '../components/Screen'
+import routes from '../navigation/routes'
+
 
 const menuItems = [
-    {title:"Messages Option",subtitle:"select your messages option",icon : {name:"email", color:"white", background:"red"} , navigation:"Messages"},
+    {title:"Messages Option",subtitle:"select your messages option",icon : {name:"email", color:"white", background:"red"} , navigation:routes.MESSAGES},
     {title:"Acount Setting",icon : {name:"account-settings-outline", color:"white",background:"#ab274f"}},
     {title:"Security",subtitle:"select your securit prefrance",icon : {name:"lock-plus", color:"white",background:"#ffbf00"}},
 ]

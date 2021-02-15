@@ -8,10 +8,7 @@ import RegisterScreen from '../screens/RegisterScreen'
 
 const Stack =createStackNavigator();
 const AuthNavigator = ()=>(
-    <Stack.Navigator screenOptions={{
-        
-        headerTintColor:"dodgerblue"
-    }}>
+    <Stack.Navigator>
         <Stack.Screen 
         options={{
             headerShown:false

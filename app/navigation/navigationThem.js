@@ -5,9 +5,8 @@ export default {
     ...DefaultTheme,
     colors:{
         ...DefaultTheme.colors,
-        tint:"red",
         primary :colors.primary,
         background: "white",
-        card:"gold"
+    
     }
 }

@@ -1,30 +1,54 @@
-import React from 'react';
-import { FlatList ,StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { ActivityIndicator, FlatList ,StyleSheet, Text } from 'react-native';
 import Card from '../components/Card';
 import Screen from '../components/Screen';
 import routes from '../navigation/routes'
+import listinApi from '../api/listings';
+import { useEffect } from 'react';
+import AppText from '../components/AppText';
+import AppButton from '../components/AppButton';
+import useApi from '../hooks/useApi';
 
 
-const   listings=[ {id:1,titel : "بلاى ستيشن 4 فى حاله جيدة", subtitle : "2000" ,image : require('../assets/ps4.jpg')} ,
-                    {id:2,titel : "laptop 16 gb ram", subtitle : "5000 LE" ,image : require('../assets/laptop22.jpg')} ,
-                    {id:3,titel : "wacom tablet", subtitle : "2300 LE" ,image : require('../assets/wacom.jpg')} ]   
+
+
+
 function ItemListingScreen({navigation}) {
+        const {data :listings , hasError , loading , request}= 
+        useApi(listinApi.getListings);
+     useEffect ( () => {
+         try {
+            request();
+         } catch (error) {
+             console.log(error)
+         }
+         
+     },[] );
+
+     
+   
     return (
         <Screen>
-            <FlatList
+            {hasError==true && 
+            <>
+            <AppText>can't connect to server</AppText>
+            <AppButton title="Retry" onPress={request}/>
+            </>}
+                <ActivityIndicator animating={loading} size="large" color="gold"/>
+             <FlatList
                 data={listings}
+                connslo
                 keyExtractor={listings => listings.id.toString()}
                 renderItem = {({item})=>
-                <Card
-                title= {item.titel}
-                subtitle={item.subtitle}
-                images={item.image}
-                onPress={() => navigation.navigate(routes.LISTING_DETAILS ,item)}
-                />
-            }
+            <Card 
+            title={item.title}
+            subtitle={item.price}
+            images={item.images[0]}
+            onPress={() => navigation.navigate(routes.LISTING_DETAILS ,item)}
+
             />
-
-
+             }
+    />
         </Screen>
     );
 }

@@ -10,10 +10,10 @@ function ListingScreen({route}) {
     const listnig = route.params;
     return (
     <Screen > 
-        <Image style={styles.image1} source={listnig.image}></Image>
+        <Image style={styles.image1} source={{uri:listnig.images[0]}}></Image>
         <View style={styles.listiing}>
-        <AppText style={styles.title}>{listnig.titel}</AppText>
-        <AppText style={styles.price  }>{listnig.subtitle}</AppText>
+        <AppText style={styles.title}>{listnig.title}</AppText>
+        <AppText style={styles.price  }>{listnig.price}</AppText>
         <ItemList 
         title= "Diaa Atya"
         subtitle= "certifeid user"

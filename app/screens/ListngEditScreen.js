@@ -9,6 +9,7 @@ import CategoryPickerItem from '../components/CategoryPickerItem'
 import FormImagePicker from '../components/form/FormImagePicker';
 import useLocation from '../hooks/useLocation';
 import listingApi from '../api/listings';
+import { useState } from 'react';
 
 
 const validationSchema = Yup.object().shape({
@@ -32,12 +33,38 @@ const categories = [
 ];
 
 function ListngEditScreen(props) {
+    const [images , setImages] = useState();
     const location = useLocation();
-
+    const imageUpload = (image) =>{
+        let newfile ={
+            uri  : image,
+            type : "test/jpg",
+            name : "test-unoqe-name12"
+        }
+        const data = new FormData()
+        data.append('file',newfile)
+        data.append('upload_preset','diaamond')
+        data.append('cloud_name','diaamondsoft')
+        fetch("https://api.cloudinary.com/v1_1/diaamondsoft/image/upload",{
+          method:"post",
+          body:data
+        }).then(res=>
+            res.json())
+        .then(data =>{
+          let urls = data.url  
+          setImages(urls)
+        })
+      }
     const handleSubmit = async (listing) => {
+        let imageArray =[]
        try {
+           listing.images.forEach((image )=>{
+              imageUpload(image)
+              imageArray.push(images)
+           })
+           console.log(imageArray)
         const result =  listingApi.addListing(
-            { ...listing, location },
+            {...listing,location,imageArray},
             console.log(listing)
           );
        } catch (error) {

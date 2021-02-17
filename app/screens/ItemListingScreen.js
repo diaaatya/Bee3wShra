@@ -3,7 +3,7 @@ import { ActivityIndicator, FlatList ,StyleSheet, Text } from 'react-native';
 import Card from '../components/Card';
 import Screen from '../components/Screen';
 import routes from '../navigation/routes'
-import listinApi from '../api/listings';
+import listingApi from '../api/listings';
 import { useEffect } from 'react';
 import AppText from '../components/AppText';
 import AppButton from '../components/AppButton';
@@ -15,7 +15,7 @@ import useApi from '../hooks/useApi';
 
 function ItemListingScreen({navigation}) {
         const {data :listings , hasError , loading , request}= 
-        useApi(listinApi.getListings);
+        useApi(listingApi.getListings);
      useEffect ( () => {
          try {
             request();

@@ -7,8 +7,8 @@ import Screen from '../components/Screen'
 import {AppForm,AppFormField,AppFormPicker,FormSubmitButton} from '../components/form'
 import CategoryPickerItem from '../components/CategoryPickerItem'
 import FormImagePicker from '../components/form/FormImagePicker';
-import { useState } from 'react/cjs/react.development';
 import useLocation from '../hooks/useLocation';
+import listingApi from '../api/listings';
 
 
 const validationSchema = Yup.object().shape({
@@ -33,6 +33,18 @@ const categories = [
 
 function ListngEditScreen(props) {
     const location = useLocation();
+
+    const handleSubmit = async (listing) => {
+       try {
+        const result =  listingApi.addListing(
+            { ...listing, location },
+            console.log(listing)
+          );
+       } catch (error) {
+           alert(error)
+       }
+      
+      };
     
     return (
        <Screen>
@@ -44,7 +56,7 @@ function ListngEditScreen(props) {
                catagory:null,
                images:[]
             }}
-            onSubmit = {values=> console.log(values)}    
+            onSubmit = {handleSubmit}    
             validationSchema={validationSchema}
            >
             <FormImagePicker name="images"/>   
